@@ -12,12 +12,12 @@ def send_to_MQ(message):
     running.
     '''
     connection = pika.BlockingConnection(pika.ConnectionParameters(
-        host='0.0.0.0:15672'))
+        host='RABBIT'))
     channel = connection.channel()
     channel.exchange_declare(
         exchange='EXAMPLE',
         exchange_type='fanout')
-    channel.basic_publish(exchange='PYGBQ_EXCHANGE',
+    channel.basic_publish(exchange='EXAMPLE',
                           routing_key='',
                           body=message)
 
@@ -46,4 +46,4 @@ def foo():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0', port=80, debug=True)
