@@ -33,7 +33,7 @@ def logger():
     day_of_week = datetime.datetime.today().weekday()
     referrer = request.referrer
     user_agent = request.headers.get('User-Agent')
-    session_id = uuid.uuid4()
+    session_id = str(uuid.uuid4())
     session_information = [session_id, start_time, day_of_week, referrer,
                            user_agent]
     d = {'info': session_information}
