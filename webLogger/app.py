@@ -1,5 +1,6 @@
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, render_template
 import uuid
+import json
 import datetime
 import time
 import pika
@@ -11,6 +12,7 @@ def send_to_MQ(message):
     Sends an acknowledgement message to the exchange that pygbq has finished
     running.
     '''
+    body = json.dumps(message)
     connection = pika.BlockingConnection(pika.ConnectionParameters(
         host='RABBIT'))
     channel = connection.channel()
@@ -19,7 +21,7 @@ def send_to_MQ(message):
         exchange_type='fanout')
     channel.basic_publish(exchange='EXAMPLE',
                           routing_key='',
-                          body=message)
+                          body=body)
 
     print " [x] Sent message"
     connection.close()
@@ -35,7 +37,7 @@ def logger():
     session_information = [session_id, start_time, day_of_week, referrer,
                            user_agent]
     d = {'info': session_information}
-    # send_to_MQ(d)
+    send_to_MQ(d)
     return render_template('layout.html')
 
 
