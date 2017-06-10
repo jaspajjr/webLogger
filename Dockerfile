@@ -1,7 +1,11 @@
-FROM rabbitmq:3.6.10
+FROM alpine
 
-ENV RABBITMQ_USER "user"
-ENV RABBITMQ_PASSWORD "user"
+RUN apk add --no-cache bash git nginx uwsgi uwsgi-python py2-pip \
+        && pip2 install --upgrade pip \
+          && pip2 install flask pika
 
-ADD init.sh /init.sh
-EXPOSE 15672
+ADD webLogger /opt/webLogger
+
+EXPOSE 80
+ENTRYPOINT ["python"]
+CMD ["opt/webLogger/app.py"]
