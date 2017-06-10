@@ -35,9 +35,8 @@ def logger():
     session_information = [session_id, start_time, day_of_week, referrer,
                            user_agent]
     d = {'info': session_information}
+    # send_to_MQ(d)
     return render_template('layout.html')
-    send_to_MQ(d)
-    return jsonify(d)
 
 
 @app.route('/foo')
