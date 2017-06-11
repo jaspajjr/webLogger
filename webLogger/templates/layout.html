@@ -6,30 +6,28 @@
 <body>
   <section>
 
-    <h1>My First Heading</h1>
+
+
     <div class="main_block">
-
-    <div class="inner_block">
-        <img src=http://i.imgur.com/Xt6vUQD.jpg>
+    <style>
+      .image-wrapper {
+        display: flex;
+      }
+      .image {
+        margin: 5px;
+      }
+    </style>
+    <div class="image-wrapper">
+      <div class="image">
+        <img src=http://www.example.com/ alt="some text" style="width:80;height:80">
+        <buttontype="button" onclick="alert('Hello world!')">Skip 1!</button>
+      </div>
+      <div class="image">
+        <img src=http://imgur.com/gallery/NEu3W/>
+        <buttontype="button" onclick="alert('Foo Bar!')">Skip 2!</button>
+      </div>
     </div>
-    <button type="button" onclick="alert('Hello world!')">Skip 1!</button>
-
-
-    <h1>My Second Heading</h1>
     <div class="inner_block">
-        <img src=http://i.imgur.com/BqFMNlq.jpg >
-    </div>
-
-    <form action="/foo" method="get">
-    <button type="submit" value="Send Email" />
-    </form>
-    <button type="button" onclick="alert('Hello world!')">Skip 1!</button>
-
-</div>
-
-
-
-<p>My first paragraph.</p>
 
 </body>
 </html>
