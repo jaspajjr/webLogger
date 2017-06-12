@@ -2,7 +2,9 @@ const express = require('express')
 const app = express()
 
 app.get('/', function (req, res) {
-  res.sendFile('/home/dom/code/webLogger/webLogger/templates/layout.html')
+  var file_path = "/templates/layout.html"
+  var fullpath = __dirname + file_path;
+  res.sendFile(fullpath)
 })
 
 app.listen(3000, function () {
