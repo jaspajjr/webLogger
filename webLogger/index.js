@@ -8,7 +8,7 @@ app.get('/', function (req, res) {
   let file_path = "/templates/layout.html"
   let fullpath = __dirname + file_path;
 
-  res.cookie(cookie_name , 'cookie_value').sendFile(fullpath)
+  res.cookie("cookie_name" , 'cookie_value').sendFile(fullpath)
   console.log(req.headers)
 })
 
