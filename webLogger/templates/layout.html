@@ -4,6 +4,13 @@
     <title>Foo Bar</title>
   </head>
   <body>
+    <script> 
+function post_request() {
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', 'send-ajax-data.php');
+  xhr.send(null);
+}
+    </script>
     <section>
 
 
@@ -24,7 +31,7 @@
           </div>
           <div class="image">
             <img src=http://imgur.com/gallery/NEu3W/>
-            <button type="button" onclick="alert('Foo Bar!')">Skip 2!</button>
+            <button type="button" onclick="alert(document.cookie)">Skip 2!</button>
           </div>
         </div>
         <div class="inner_block">

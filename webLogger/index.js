@@ -12,6 +12,10 @@ app.get('/', function (req, res) {
   console.log(req.headers)
 })
 
+app.post('/', function(req, res) {
+  console.log("post")
+})
+
 app.listen(3000, function (req, res) {
   console.log('Example app listening on port 3000!')
 })
